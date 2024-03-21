@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt8thpfd46cd1"]
+
+[ext_resource type="PackedScene" uid="uid://5yjco5rp36x0" path="res://Scenes/player.tscn" id="1_igvqi"]
+[ext_resource type="Script" path="res://Scenes/world.gd" id="1_lj6qr"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rkhvo"]
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_lj6qr")
+
+[node name="Player" parent="." instance=ExtResource("1_igvqi")]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_rkhvo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 0, 0)
