@@ -1,17 +1,62 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt8thpfd46cd1"]
+[gd_scene load_steps=12 format=3 uid="uid://dt8thpfd46cd1"]
 
 [ext_resource type="PackedScene" uid="uid://5yjco5rp36x0" path="res://Scenes/player.tscn" id="1_igvqi"]
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_lj6qr"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_rkhvo"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_bj6u7"]
+size = Vector2(100, 100)
+
+[sub_resource type="Gradient" id="Gradient_joeln"]
+offsets = PackedFloat32Array(0, 0.996528)
+colors = PackedColorArray(0.3036, 0.92, 0.3036, 1, 0.0925, 0.37, 0.2035, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rdbch"]
+frequency = 0.1
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r7edl"]
+width = 4096
+height = 4096
+seamless = true
+color_ramp = SubResource("Gradient_joeln")
+noise = SubResource("FastNoiseLite_rdbch")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vqsq0"]
+frequency = 0.1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dr3a4"]
+noise = SubResource("FastNoiseLite_vqsq0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ic8m4"]
+albedo_texture = SubResource("NoiseTexture2D_r7edl")
+normal_texture = SubResource("NoiseTexture2D_dr3a4")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tflov"]
+margin = 0.0
+size = Vector3(100, 1, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_risog"]
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_lj6qr")
 
 [node name="Player" parent="." instance=ExtResource("1_igvqi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Floor" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_rkhvo")
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_bj6u7")
+surface_material_override/0 = SubResource("StandardMaterial3D_ic8m4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_tflov")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2.59086)
+mesh = SubResource("BoxMesh_risog")

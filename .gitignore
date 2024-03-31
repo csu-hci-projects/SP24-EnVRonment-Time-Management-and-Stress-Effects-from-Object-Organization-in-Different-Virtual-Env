@@ -1,2 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
+addons/godotopenxrvendors/khronos/.bin/libgodotopenxrkhronos.macos.template_release.framework/libgodotopenxrkhronos.macos.template_release
+addons/godotopenxrvendors/khronos/.bin/libgodotopenxrkhronos.macos.template_debug.framework/libgodotopenxrkhronos.macos.template_debug

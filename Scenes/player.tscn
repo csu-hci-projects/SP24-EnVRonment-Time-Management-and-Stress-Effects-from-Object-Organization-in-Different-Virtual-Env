@@ -1,26 +1,68 @@
-[gd_scene load_steps=2 format=3 uid="uid://5yjco5rp36x0"]
+[gd_scene load_steps=10 format=3 uid="uid://5yjco5rp36x0"]
+
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="1_avmgv"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="1_kjdhy"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_840f1"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="2_giuab"]
+[ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="3_diww4"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" id="6_1yywk"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_3fmqh"]
 radius = 0.1
 height = 0.2
 
+[sub_resource type="Resource" id="Resource_6ehtd"]
+script = ExtResource("6_1yywk")
+flags = 0
+move_drag = 5.0
+move_traction = 30.0
+stop_on_slope = true
+move_max_slope = 45.0
+jump_max_slope = 45.0
+jump_velocity = 3.0
+bounciness = 0.0
+bounce_threshold = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e6d5s"]
+margin = 0.0
+radius = 0.2
+
 [node name="Player" type="Node3D"]
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
+current = true
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 current = true
 
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.554203, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.554203, 1, 0)
 tracker = &"right_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightHand"]
+visible = false
 mesh = SubResource("SphereMesh_3fmqh")
 
+[node name="RightHand" parent="XROrigin3D/RightHand" instance=ExtResource("1_kjdhy")]
+
+[node name="MovementTurn" parent="XROrigin3D/RightHand" instance=ExtResource("2_giuab")]
+
 [node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.581209, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.581209, 1, 0)
 tracker = &"left_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftHand"]
+visible = false
 mesh = SubResource("SphereMesh_3fmqh")
+
+[node name="LeftHand" parent="XROrigin3D/LeftHand" instance=ExtResource("2_840f1")]
+
+[node name="FunctionTeleport" parent="XROrigin3D/LeftHand" instance=ExtResource("3_diww4")]
+
+[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("1_avmgv")]
+physics = SubResource("Resource_6ehtd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/PlayerBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_e6d5s")
