@@ -34,7 +34,7 @@ normal_texture = SubResource("NoiseTexture2D_dr3a4")
 uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tflov"]
-margin = 0.0
+margin = 0.055
 size = Vector3(100, 1, 100)
 
 [sub_resource type="BoxMesh" id="BoxMesh_risog"]
@@ -52,7 +52,6 @@ height = 0.2
 script = ExtResource("1_lj6qr")
 
 [node name="Player" parent="." instance=ExtResource("1_igvqi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 

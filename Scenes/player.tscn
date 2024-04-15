@@ -12,8 +12,9 @@ radius = 0.1
 height = 0.2
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e6d5s"]
-margin = 0.0
-radius = 0.2
+margin = 0.001
+radius = 0.0005
+height = 0.001
 
 [node name="Player" type="Node3D"]
 
@@ -21,7 +22,6 @@ radius = 0.2
 current = true
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 current = true
 
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
@@ -55,7 +55,7 @@ mesh = SubResource("SphereMesh_3fmqh")
 script = ExtResource("3_t7fq2")
 
 [node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("1_avmgv")]
+player_calibrate_height = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/PlayerBody"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_e6d5s")
