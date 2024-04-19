@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpm5xfkv2em4d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e51u4"]
+size = Vector3(0.001, 100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xdsoc"]
+size = Vector3(100, 100, 0.001)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="floor" type="CSGBox3D" parent="."]
+size = Vector3(100, 1, 100)
+
+[node name="wall" type="StaticBody3D" parent="floor"]
+
+[node name="1" type="CollisionShape3D" parent="floor/wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.9995, 0, 0)
+shape = SubResource("BoxShape3D_e51u4")
+
+[node name="2" type="CollisionShape3D" parent="floor/wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 49.9995)
+shape = SubResource("BoxShape3D_xdsoc")
+
+[node name="3" type="CollisionShape3D" parent="floor/wall"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -49.9995, 0, 0)
+shape = SubResource("BoxShape3D_xdsoc")
+
+[node name="4" type="CollisionShape3D" parent="floor/wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -49.9995)
+shape = SubResource("BoxShape3D_xdsoc")
