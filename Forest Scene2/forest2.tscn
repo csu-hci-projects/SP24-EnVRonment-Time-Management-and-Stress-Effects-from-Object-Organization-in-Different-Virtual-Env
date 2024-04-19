@@ -1,4 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpm5xfkv2em4d"]
+[gd_scene load_steps=24 format=3 uid="uid://cpm5xfkv2em4d"]
+
+[ext_resource type="Material" uid="uid://k7b5nx3aqd8f" path="res://Forest Scene2/material/rock.tres" id="1_l5255"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="2_5psvv"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="3_tjsed"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="4_uro6q"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="5_11201"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="6_gkgti"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="7_uemop"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="8_7n8f1"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="9_cae8o"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="10_k7v7u"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="11_tgrui"]
+[ext_resource type="Script" path="res://Forest Scene/player.gd" id="12_eypk3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e51u4"]
 size = Vector3(0.001, 100, 100)
@@ -6,9 +19,76 @@ size = Vector3(0.001, 100, 100)
 [sub_resource type="BoxShape3D" id="BoxShape3D_xdsoc"]
 size = Vector3(100, 100, 0.001)
 
+[sub_resource type="Resource" id="Resource_nhetm"]
+script = ExtResource("4_uro6q")
+amount = 3000
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_kx60h"]
+script = ExtResource("5_11201")
+position = Vector3(0.15, 0.15, 0.15)
+rotation = Vector3(5, 360, 5)
+scale = Vector3(0.1, 0.1, 0.1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_17op0"]
+script = ExtResource("6_gkgti")
+iterations = 3
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_qh50v"]
+script = ExtResource("7_uemop")
+ray_direction = Vector3(0, -1, 0)
+ray_length = 5.0
+ray_offset = 5.0
+remove_points_on_miss = false
+align_with_collision_normal = false
+max_slope = 90.0
+collision_mask = 1
+exclude_mask = 0
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_qyqkk"]
+script = ExtResource("3_tjsed")
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_nhetm"), SubResource("Resource_kx60h"), SubResource("Resource_17op0"), SubResource("Resource_qh50v")])
+
+[sub_resource type="Resource" id="Resource_75o8b"]
+script = ExtResource("10_k7v7u")
+size = Vector3(100, 1, 100)
+
+[sub_resource type="Resource" id="Resource_sicj5"]
+script = ExtResource("11_tgrui")
+radius = 18.6804
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qga1s"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_eeegx"]
+points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="floor" type="CSGBox3D" parent="."]
+material_override = ExtResource("1_l5255")
+use_collision = true
 size = Vector3(100, 1, 100)
 
 [node name="wall" type="StaticBody3D" parent="floor"]
@@ -28,3 +108,49 @@ shape = SubResource("BoxShape3D_xdsoc")
 [node name="4" type="CollisionShape3D" parent="floor/wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -49.9995)
 shape = SubResource("BoxShape3D_xdsoc")
+
+[node name="ProtonScatter" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0656562, 0)
+script = ExtResource("2_5psvv")
+modifier_stack = SubResource("Resource_qyqkk")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+
+[node name="tree" type="Node3D" parent="ProtonScatter"]
+script = ExtResource("8_7n8f1")
+proportion = 5
+source_scale_multiplier = 0.1
+path = "res://Forest Scene2/model/fir_tree/scene.gltf"
+
+[node name="grass" type="Node3D" parent="ProtonScatter"]
+script = ExtResource("8_7n8f1")
+path = "res://addons/proton_scatter/demos/assets/grass_2.tscn"
+
+[node name="boxShape" type="Node3D" parent="ProtonScatter"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+script = ExtResource("9_cae8o")
+shape = SubResource("Resource_75o8b")
+
+[node name="center" type="Node3D" parent="ProtonScatter"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+visible = false
+script = ExtResource("9_cae8o")
+negative = true
+shape = SubResource("Resource_sicj5")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.76414, -3.07432, 0)
+script = ExtResource("12_eypk3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+mesh = SubResource("CapsuleMesh_qga1s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("ConvexPolygonShape3D_eeegx")
+
+[node name="neck" type="Node3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.41782, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/neck"]
