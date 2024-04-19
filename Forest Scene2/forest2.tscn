@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://cpm5xfkv2em4d"]
+[gd_scene load_steps=28 format=3 uid="uid://cpm5xfkv2em4d"]
 
+[ext_resource type="Texture2D" uid="uid://ceigqyuovo04p" path="res://Forest Scene/textures/sky/pure sky.hdr" id="1_bo1c8"]
 [ext_resource type="Material" uid="uid://k7b5nx3aqd8f" path="res://Forest Scene2/material/rock.tres" id="1_l5255"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="2_5psvv"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="3_tjsed"]
@@ -12,6 +13,25 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="10_k7v7u"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="11_tgrui"]
 [ext_resource type="Script" path="res://Forest Scene/player.gd" id="12_eypk3"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xi3sd"]
+panorama = ExtResource("1_bo1c8")
+
+[sub_resource type="Sky" id="Sky_0vlr5"]
+sky_material = SubResource("PanoramaSkyMaterial_xi3sd")
+
+[sub_resource type="Environment" id="Environment_keif1"]
+background_mode = 2
+sky = SubResource("Sky_0vlr5")
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 1.03
+fog_light_color = Color(0.521569, 0.584314, 0.509804, 1)
+fog_light_energy = 2.45
+fog_sun_scatter = 0.06
+fog_density = 0.0153
+volumetric_fog_enabled = true
+volumetric_fog_sky_affect = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e51u4"]
 size = Vector3(0.001, 100, 100)
@@ -86,7 +106,20 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [node name="Node3D" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_keif1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+visible = false
+light_color = Color(0.419608, 0.0588235, 0, 1)
+light_energy = 4.044
+light_indirect_energy = 0.169
+light_volumetric_fog_energy = 0.382
+shadow_enabled = true
+
 [node name="floor" type="CSGBox3D" parent="."]
+visible = false
 material_override = ExtResource("1_l5255")
 use_collision = true
 size = Vector3(100, 1, 100)
@@ -111,6 +144,7 @@ shape = SubResource("BoxShape3D_xdsoc")
 
 [node name="ProtonScatter" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0656562, 0)
+visible = false
 script = ExtResource("2_5psvv")
 modifier_stack = SubResource("Resource_qyqkk")
 Performance/use_chunks = true
@@ -140,6 +174,7 @@ shape = SubResource("Resource_sicj5")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.76414, -3.07432, 0)
+visible = false
 script = ExtResource("12_eypk3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
