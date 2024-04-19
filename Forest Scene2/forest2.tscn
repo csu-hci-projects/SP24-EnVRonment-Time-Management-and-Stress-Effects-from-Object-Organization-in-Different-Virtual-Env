@@ -118,8 +118,8 @@ Performance/chunk_dimensions = Vector3(15, 15, 15)
 
 [node name="tree" type="Node3D" parent="ProtonScatter"]
 script = ExtResource("8_7n8f1")
-proportion = 5
-source_scale_multiplier = 0.1
+proportion = 8
+source_scale_multiplier = 0.08
 path = "res://Forest Scene2/model/fir_tree/scene.gltf"
 
 [node name="grass" type="Node3D" parent="ProtonScatter"]
