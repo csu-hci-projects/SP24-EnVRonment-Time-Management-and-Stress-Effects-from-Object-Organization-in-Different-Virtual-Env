@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="12_u14xx"]
 [ext_resource type="PackedScene" uid="uid://wwmxytitt5vc" path="res://Forest Scene/models/beech_tree.glb" id="13_tmbgm"]
 [ext_resource type="Script" path="res://Forest Scene/player.gd" id="14_vtkv8"]
-[ext_resource type="AudioStream" uid="uid://b7jlxqo8khirt" path="res://Forest Scene/music/forest-163012.mp3" id="15_b66gr"]
+[ext_resource type="AudioStream" uid="uid://cf5ink7jjxbwj" path="res://Forest Scene/music/Limbo (noise music) (320).mp3" id="15_ju2yc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g08ra"]
 panorama = ExtResource("1_ihrss")
@@ -47,7 +47,7 @@ size = Vector3(0.001, 100, 100)
 [sub_resource type="BoxShape3D" id="BoxShape3D_47qy2"]
 size = Vector3(100, 100, 0.001)
 
-[sub_resource type="Resource" id="Resource_8pajt"]
+[sub_resource type="Resource" id="Resource_8anlb"]
 script = ExtResource("5_8gouc")
 amount = 2500
 enabled = true
@@ -56,7 +56,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_ertxc"]
+[sub_resource type="Resource" id="Resource_6nj4v"]
 script = ExtResource("6_0ekjg")
 position = Vector3(0, 0, 0)
 rotation = Vector3(5, 360, 5)
@@ -67,7 +67,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_ty416"]
+[sub_resource type="Resource" id="Resource_br46n"]
 script = ExtResource("7_301nh")
 iterations = 3
 offset_step = 0.2
@@ -79,7 +79,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_espng"]
+[sub_resource type="Resource" id="Resource_ya3w7"]
 script = ExtResource("8_4f5a6")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -95,9 +95,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_amssl"]
+[sub_resource type="Resource" id="Resource_oufyf"]
 script = ExtResource("4_rta5w")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_8pajt"), SubResource("Resource_ertxc"), SubResource("Resource_ty416"), SubResource("Resource_espng")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_8anlb"), SubResource("Resource_6nj4v"), SubResource("Resource_br46n"), SubResource("Resource_ya3w7")])
 
 [sub_resource type="Resource" id="Resource_d4ira"]
 script = ExtResource("11_1vkj1")
@@ -160,7 +160,7 @@ shape = SubResource("BoxShape3D_47qy2")
 script = ExtResource("3_1t6bv")
 render_mode = 1
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_amssl")
+modifier_stack = SubResource("Resource_oufyf")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -225,6 +225,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.41782, 0)
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/neck"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_b66gr")
+stream = ExtResource("15_ju2yc")
 volume_db = -28.347
 autoplay = true
