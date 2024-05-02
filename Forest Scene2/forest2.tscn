@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c8mq8lj7iw77y"]
+[gd_scene load_steps=30 format=3 uid="uid://c8mq8lj7iw77y"]
 
 [ext_resource type="Texture2D" uid="uid://6crqp2416r8s" path="res://Forest Scene2/model/willow/textures/satara_night_no_lamps_4k.hdr" id="1_ke8lp"]
 [ext_resource type="Material" uid="uid://k7b5nx3aqd8f" path="res://Forest Scene2/material/rock.tres" id="1_l5255"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="10_br7hv"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="11_637yr"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="12_xa50d"]
-[ext_resource type="Script" path="res://Forest Scene/player.gd" id="14_nhuma"]
 [ext_resource type="AudioStream" uid="uid://67dg7ojahxsv" path="res://Forest Scene/music/wind-noise-001-8332.mp3" id="15_wfjkl"]
 [ext_resource type="PackedScene" uid="uid://gsnqgdh0u53y" path="res://Forest Scene2/model/willow/scene.gltf" id="15_wvllh"]
 
@@ -54,7 +53,7 @@ size = Vector3(0.001, 100, 100)
 [sub_resource type="BoxShape3D" id="BoxShape3D_47qy2"]
 size = Vector3(100, 100, 0.001)
 
-[sub_resource type="Resource" id="Resource_lyun1"]
+[sub_resource type="Resource" id="Resource_bq0rb"]
 script = ExtResource("5_6fdqj")
 amount = 2500
 enabled = true
@@ -63,7 +62,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_rcbg1"]
+[sub_resource type="Resource" id="Resource_glqbv"]
 script = ExtResource("6_koo3i")
 position = Vector3(0, 0, 0)
 rotation = Vector3(5, 360, 5)
@@ -74,7 +73,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_0x3b0"]
+[sub_resource type="Resource" id="Resource_0orqd"]
 script = ExtResource("7_bsved")
 iterations = 3
 offset_step = 0.2
@@ -86,7 +85,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_fcm36"]
+[sub_resource type="Resource" id="Resource_xvn0d"]
 script = ExtResource("8_ehb78")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -102,9 +101,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_84i4w"]
+[sub_resource type="Resource" id="Resource_fkgco"]
 script = ExtResource("4_wijoh")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_lyun1"), SubResource("Resource_rcbg1"), SubResource("Resource_0x3b0"), SubResource("Resource_fcm36")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_bq0rb"), SubResource("Resource_glqbv"), SubResource("Resource_0orqd"), SubResource("Resource_xvn0d")])
 
 [sub_resource type="Resource" id="Resource_d4ira"]
 script = ExtResource("11_637yr")
@@ -113,11 +112,6 @@ size = Vector3(100, 1, 100)
 [sub_resource type="Resource" id="Resource_kwngj"]
 script = ExtResource("12_xa50d")
 radius = 16.5981
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_lex65"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_aa7ae"]
-points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n3ohw"]
 radius = 0.359077
@@ -163,7 +157,7 @@ shape = SubResource("BoxShape3D_47qy2")
 script = ExtResource("3_b55b5")
 render_mode = 1
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_84i4w")
+modifier_stack = SubResource("Resource_fkgco")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -202,23 +196,6 @@ script = ExtResource("10_br7hv")
 negative = true
 shape = SubResource("Resource_kwngj")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.76414, -3.07432, 0)
-script = ExtResource("14_nhuma")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
-mesh = SubResource("CapsuleMesh_lex65")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
-shape = SubResource("ConvexPolygonShape3D_aa7ae")
-
-[node name="neck" type="Node3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.41782, 0)
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/neck"]
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_wfjkl")
 volume_db = -28.347
@@ -245,7 +222,7 @@ transform = Transform3D(1, 0, 0, 0, 0.998729, -0.0504012, 0, 0.0504012, 0.998729
 shape = SubResource("CapsuleShape3D_n3ohw")
 
 [node name="Sketchfab_Scene3" parent="." instance=ExtResource("15_wvllh")]
-transform = Transform3D(-3.76588, 0.105708, -1.34099, 0, 2.98357, 0.418114, 1.34838, 0.295231, -3.74525, -0.934639, 0, -4.65527)
+transform = Transform3D(-3.76588, 0.105708, -1.34099, 0, 2.98357, 0.418114, 1.34838, 0.295231, -3.74525, -0.930821, 2.38419e-07, -4.66199)
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_Scene3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0187775, 0.241549, -0.0107157)

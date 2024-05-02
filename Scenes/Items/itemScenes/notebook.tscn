@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp0hk3ndkcvd2"]
+
+[ext_resource type="PackedScene" uid="uid://byerfdu2ktqii" path="res://Scenes/Items/Office/notebook.glb" id="1_hcwqh"]
+[ext_resource type="Script" path="res://Scenes/item.gd" id="2_ly7en"]
+
+[node name="notebook" instance=ExtResource("1_hcwqh")]
+
+[node name="Wardrobe &workspace-notebook-diffuse" parent="." index="0"]
+transform = Transform3D(-0.324428, -0.0114664, -0.945841, -0.0353212, 0.999376, -7.18176e-09, 0.945251, 0.0334083, -0.324631, 0, 0, 0)
+script = ExtResource("2_ly7en")
+type = "office"

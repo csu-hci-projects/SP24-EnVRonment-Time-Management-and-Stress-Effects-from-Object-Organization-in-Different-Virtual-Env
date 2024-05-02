@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn04vq2imbs5n"]
+
+[ext_resource type="PackedScene" uid="uid://okdpp4j1kbrc" path="res://Scenes/Items/Food/donut.glb" id="1_817hm"]
+[ext_resource type="Script" path="res://Scenes/item.gd" id="2_tyhtn"]
+
+[node name="donut" instance=ExtResource("1_817hm")]
+
+[node name="Es" parent="." index="0"]
+script = ExtResource("2_tyhtn")
+type = "food"

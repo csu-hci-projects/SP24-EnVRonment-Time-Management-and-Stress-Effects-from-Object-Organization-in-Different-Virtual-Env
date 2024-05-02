@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://rr8bdag8rloe"]
+
+[ext_resource type="PackedScene" uid="uid://sodjw42fscrl" path="res://Scenes/Items/Food/strawberry.glb" id="1_7ex76"]
+[ext_resource type="Script" path="res://Scenes/item.gd" id="2_swxkd"]
+
+[node name="strawberry2" instance=ExtResource("1_7ex76")]
+
+[node name="strawberry" parent="." index="0"]
+transform = Transform3D(0.00934273, -0.336498, -0.941638, 0.999604, -0.0218453, 0.0177244, -0.0265346, -0.941431, 0.336161, 0.000543283, 0.0888544, -0.00166957)
+script = ExtResource("2_swxkd")
+type = "food"

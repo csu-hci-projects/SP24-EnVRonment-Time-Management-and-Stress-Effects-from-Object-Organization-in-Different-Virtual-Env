@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjux123me7eud"]
+
+[ext_resource type="PackedScene" uid="uid://c4xakek6dkjqv" path="res://Scenes/Items/Animals/duck.glb" id="1_6n7if"]
+[ext_resource type="Script" path="res://Scenes/item.gd" id="2_kfgdm"]
+
+[node name="duck" instance=ExtResource("1_6n7if")]
+
+[node name="Duck" parent="." index="0"]
+collision_layer = 5
+script = ExtResource("2_kfgdm")
+type = "animals"

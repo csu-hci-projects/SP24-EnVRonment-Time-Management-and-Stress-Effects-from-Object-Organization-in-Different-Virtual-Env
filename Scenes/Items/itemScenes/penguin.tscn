@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf53v5bxh83er"]
+
+[ext_resource type="PackedScene" uid="uid://c1xnsla0npjuk" path="res://Scenes/Items/Animals/penguin.glb" id="1_4sdk7"]
+[ext_resource type="Script" path="res://Scenes/item.gd" id="2_mujdl"]
+
+[node name="penguin" instance=ExtResource("1_4sdk7")]
+
+[node name="Mouth_Idle" parent="." index="0"]
+collision_layer = 5
+script = ExtResource("2_mujdl")
+type = "animals"
