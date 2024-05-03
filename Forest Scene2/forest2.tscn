@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c8mq8lj7iw77y"]
+[gd_scene load_steps=37 format=3 uid="uid://c8mq8lj7iw77y"]
 
 [ext_resource type="Texture2D" uid="uid://6crqp2416r8s" path="res://Forest Scene2/model/willow/textures/satara_night_no_lamps_4k.hdr" id="1_ke8lp"]
 [ext_resource type="Material" uid="uid://k7b5nx3aqd8f" path="res://Forest Scene2/material/rock.tres" id="1_l5255"]
@@ -12,8 +12,10 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="10_br7hv"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="11_637yr"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="12_xa50d"]
+[ext_resource type="PackedScene" uid="uid://cyhcn86clexmo" path="res://Scenes/bin.tscn" id="15_decuk"]
 [ext_resource type="AudioStream" uid="uid://67dg7ojahxsv" path="res://Forest Scene/music/wind-noise-001-8332.mp3" id="15_wfjkl"]
 [ext_resource type="PackedScene" uid="uid://gsnqgdh0u53y" path="res://Forest Scene2/model/willow/scene.gltf" id="15_wvllh"]
+[ext_resource type="PackedScene" uid="uid://5yjco5rp36x0" path="res://Scenes/player.tscn" id="16_h0he2"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g08ra"]
 panorama = ExtResource("1_ke8lp")
@@ -34,7 +36,6 @@ fog_light_energy = 1.96
 fog_sun_scatter = 0.3
 fog_density = 0.0207
 fog_aerial_perspective = 0.003
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.0082
 volumetric_fog_albedo = Color(0.392157, 0.392157, 0.392157, 1)
 volumetric_fog_emission = Color(0.0862745, 0.0862745, 0.0862745, 1)
@@ -53,7 +54,7 @@ size = Vector3(0.001, 100, 100)
 [sub_resource type="BoxShape3D" id="BoxShape3D_47qy2"]
 size = Vector3(100, 100, 0.001)
 
-[sub_resource type="Resource" id="Resource_3xjtj"]
+[sub_resource type="Resource" id="Resource_wylwh"]
 script = ExtResource("5_6fdqj")
 amount = 2500
 enabled = true
@@ -62,7 +63,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_bdohp"]
+[sub_resource type="Resource" id="Resource_u1236"]
 script = ExtResource("6_koo3i")
 position = Vector3(0, 0, 0)
 rotation = Vector3(5, 360, 5)
@@ -73,7 +74,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_lut7d"]
+[sub_resource type="Resource" id="Resource_30lmt"]
 script = ExtResource("7_bsved")
 iterations = 3
 offset_step = 0.2
@@ -85,7 +86,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_u5x3e"]
+[sub_resource type="Resource" id="Resource_wetfa"]
 script = ExtResource("8_ehb78")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -101,9 +102,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_nbouu"]
+[sub_resource type="Resource" id="Resource_s8xsh"]
 script = ExtResource("4_wijoh")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_3xjtj"), SubResource("Resource_bdohp"), SubResource("Resource_lut7d"), SubResource("Resource_u5x3e")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_wylwh"), SubResource("Resource_u1236"), SubResource("Resource_30lmt"), SubResource("Resource_wetfa")])
 
 [sub_resource type="Resource" id="Resource_d4ira"]
 script = ExtResource("11_637yr")
@@ -116,6 +117,31 @@ radius = 16.5981
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n3ohw"]
 radius = 0.359077
 height = 2.87935
+
+[sub_resource type="Resource" id="Resource_wt44l"]
+script = ExtResource("5_6fdqj")
+amount = 15
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_j2ne0"]
+script = ExtResource("4_wijoh")
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_wt44l")])
+
+[sub_resource type="Resource" id="Resource_wv2c3"]
+script = ExtResource("11_637yr")
+size = Vector3(24.7407, 1, 25.8953)
+
+[sub_resource type="Resource" id="Resource_inr83"]
+script = ExtResource("11_637yr")
+size = Vector3(10.5744, 10.8725, 9.65541)
+
+[sub_resource type="Resource" id="Resource_shxk3"]
+script = ExtResource("11_637yr")
+size = Vector3(14.4672, 10.8725, 9.69716)
 
 [node name="world" type="Node3D"]
 
@@ -157,7 +183,7 @@ shape = SubResource("BoxShape3D_47qy2")
 script = ExtResource("3_b55b5")
 render_mode = 1
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_nbouu")
+modifier_stack = SubResource("Resource_s8xsh")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -230,3 +256,47 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0187775, 0.241549, -0.01071
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene3/StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 0.998729, -0.0504012, 0, 0.0504012, 0.998729, 0.0916294, 0.391379, 0.0545796)
 shape = SubResource("CapsuleShape3D_n3ohw")
+
+[node name="bin" parent="." instance=ExtResource("15_decuk")]
+transform = Transform3D(-0.877196, 0, -0.480132, 0, 1, 0, 0.480132, 0, -0.877196, -1.20852, 0.5, -7.06066)
+sortType = "food"
+
+[node name="bin2" parent="." instance=ExtResource("15_decuk")]
+transform = Transform3D(-0.877196, 0, -0.480132, 0, 1, 0, 0.480132, 0, -0.877196, -3.49412, 0.494292, -5.87223)
+sortType = "animals"
+
+[node name="bin3" parent="." instance=ExtResource("15_decuk")]
+transform = Transform3D(-0.877196, 0, -0.480132, 0, 1, 0, 0.480132, 0, -0.877196, -5.87294, 0.494292, -4.52799)
+sortType = "office"
+
+[node name="Player" parent="." instance=ExtResource("16_h0he2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.39577, 8.13352, -9.68581)
+
+[node name="ProtonScatter" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144179, 0)
+script = ExtResource("3_b55b5")
+render_mode = 1
+modifier_stack = SubResource("Resource_j2ne0")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+
+[node name="ScatterItem" type="Node3D" parent="ProtonScatter"]
+script = ExtResource("9_cer4j")
+path = "res://Scenes/item.tscn"
+
+[node name="Range" type="Node3D" parent="ProtonScatter"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -3.28055, 3.52757, -3.66597)
+script = ExtResource("10_br7hv")
+shape = SubResource("Resource_wv2c3")
+
+[node name="ScatterShape" type="Node3D" parent="ProtonScatter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.11753, 0, -5.05665)
+script = ExtResource("10_br7hv")
+negative = true
+shape = SubResource("Resource_inr83")
+
+[node name="ScatterShape2" type="Node3D" parent="ProtonScatter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.60831, 0, -17.4963)
+script = ExtResource("10_br7hv")
+negative = true
+shape = SubResource("Resource_shxk3")

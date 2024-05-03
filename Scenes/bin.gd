@@ -21,8 +21,10 @@ func _on_area_3d_body_entered(body):
 	if body is SortingItem:
 		if body.type == sortType:
 			currentAmount += 1
+			$Success.play()
 		else:
 			Global.errorCount += 1
+			$Fail.play()
 		Global.itemsSorted += 1
 
 

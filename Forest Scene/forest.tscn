@@ -18,24 +18,6 @@
 [ext_resource type="AudioStream" uid="uid://67dg7ojahxsv" path="res://Forest Scene/music/wind-noise-001-8332.mp3" id="15_t28yr"]
 [ext_resource type="PackedScene" uid="uid://cyhcn86clexmo" path="res://Scenes/bin.tscn" id="17_32nxr"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g08ra"]
-panorama = ExtResource("1_an4pq")
-
-[sub_resource type="Sky" id="Sky_0vlr5"]
-sky_material = SubResource("PanoramaSkyMaterial_g08ra")
-
-[sub_resource type="Environment" id="Environment_bok84"]
-background_mode = 2
-sky = SubResource("Sky_0vlr5")
-reflected_light_source = 1
-tonemap_mode = 2
-glow_intensity = 1.03
-fog_light_color = Color(0.521569, 0.584314, 0.509804, 1)
-fog_light_energy = 2.45
-fog_sun_scatter = 0.06
-fog_density = 0.0153
-volumetric_fog_sky_affect = 0.0
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_xkepw"]
 size = Vector3(100, 100, 0.001)
 
@@ -48,7 +30,7 @@ size = Vector3(0.001, 100, 100)
 [sub_resource type="BoxShape3D" id="BoxShape3D_47qy2"]
 size = Vector3(100, 100, 0.001)
 
-[sub_resource type="Resource" id="Resource_7wetu"]
+[sub_resource type="Resource" id="Resource_847gt"]
 script = ExtResource("5_utaat")
 amount = 2500
 enabled = true
@@ -57,7 +39,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_obf00"]
+[sub_resource type="Resource" id="Resource_ens15"]
 script = ExtResource("6_h3ho0")
 position = Vector3(0, 0, 0)
 rotation = Vector3(5, 360, 5)
@@ -68,7 +50,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_d8mtk"]
+[sub_resource type="Resource" id="Resource_8d5os"]
 script = ExtResource("7_6t0rc")
 iterations = 3
 offset_step = 0.2
@@ -80,7 +62,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_kd56e"]
+[sub_resource type="Resource" id="Resource_8c76p"]
 script = ExtResource("8_3sn8o")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -96,9 +78,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_2h24x"]
+[sub_resource type="Resource" id="Resource_tuqr6"]
 script = ExtResource("4_p7du5")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_7wetu"), SubResource("Resource_obf00"), SubResource("Resource_d8mtk"), SubResource("Resource_kd56e")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_847gt"), SubResource("Resource_ens15"), SubResource("Resource_8d5os"), SubResource("Resource_8c76p")])
 
 [sub_resource type="Resource" id="Resource_d4ira"]
 script = ExtResource("11_1jhtv")
@@ -116,7 +98,7 @@ height = 1.3553
 radius = 0.101768
 height = 0.489166
 
-[sub_resource type="Resource" id="Resource_g05e4"]
+[sub_resource type="Resource" id="Resource_l3jbk"]
 script = ExtResource("5_utaat")
 amount = 15
 enabled = true
@@ -125,9 +107,9 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_ydibb"]
+[sub_resource type="Resource" id="Resource_vgkji"]
 script = ExtResource("4_p7du5")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_g05e4")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_l3jbk")])
 
 [sub_resource type="Resource" id="Resource_8fj5v"]
 script = ExtResource("11_1jhtv")
@@ -141,11 +123,26 @@ size = Vector3(14.4672, 10.8725, 9.69716)
 script = ExtResource("11_1jhtv")
 size = Vector3(14.4672, 10.8725, 9.69716)
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g5prj"]
+panorama = ExtResource("1_an4pq")
+
+[sub_resource type="Sky" id="Sky_wwvai"]
+sky_material = SubResource("PanoramaSkyMaterial_g5prj")
+
+[sub_resource type="Environment" id="Environment_s0pgc"]
+background_mode = 2
+sky = SubResource("Sky_wwvai")
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 1.03
+fog_light_color = Color(0.521569, 0.584314, 0.509804, 1)
+fog_light_energy = 2.45
+fog_sun_scatter = 0.06
+fog_density = 0.0153
+volumetric_fog_sky_affect = 0.0
+
 [node name="world" type="Node3D"]
 script = ExtResource("1_babr0")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_bok84")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -153,6 +150,7 @@ light_color = Color(1, 1, 0.87451, 1)
 light_energy = 4.044
 light_indirect_energy = 0.169
 light_volumetric_fog_energy = 0.382
+shadow_enabled = true
 
 [node name="floor" type="CSGBox3D" parent="."]
 material_override = ExtResource("2_v8gs2")
@@ -179,7 +177,7 @@ shape = SubResource("BoxShape3D_47qy2")
 
 [node name="Forest_setting" type="Node3D" parent="."]
 script = ExtResource("3_uf16p")
-modifier_stack = SubResource("Resource_2h24x")
+modifier_stack = SubResource("Resource_tuqr6")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -238,7 +236,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.39577, 8.13352, -9.68581)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144179, 0)
 script = ExtResource("3_uf16p")
 render_mode = 1
-modifier_stack = SubResource("Resource_ydibb")
+modifier_stack = SubResource("Resource_vgkji")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -274,3 +272,6 @@ sortType = "animals"
 [node name="bin3" parent="." instance=ExtResource("17_32nxr")]
 transform = Transform3D(-0.877196, 0, -0.480132, 0, 1, 0, 0.480132, 0, -0.877196, -5.87294, 0.494292, -1.55214)
 sortType = "office"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_s0pgc")
