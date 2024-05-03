@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy124fgf3u0gl"]
+
+[ext_resource type="PackedScene" uid="uid://dcupyv8v2rm3c" path="res://Scenes/Items/Food/burger.glb" id="1_c25y6"]
+[ext_resource type="Script" path="res://Scenes/item.gd" id="2_cn1uj"]
+
+[node name="burger" instance=ExtResource("1_c25y6")]
+
+[node name="tomato" parent="." index="0"]
+script = ExtResource("2_cn1uj")
+type = "food"

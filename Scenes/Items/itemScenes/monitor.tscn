@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk53kva8yq86j"]
+
+[ext_resource type="PackedScene" uid="uid://co4tdcwtru6g0" path="res://Scenes/Items/Office/monitor.glb" id="1_bqhrr"]
+[ext_resource type="Script" path="res://Scenes/item.gd" id="2_01rcq"]
+
+[node name="monitor" instance=ExtResource("1_bqhrr")]
+
+[node name="Line010" parent="." index="0"]
+transform = Transform3D(-0.045517, 0.0473705, -0.99784, 0.0167967, 0.99877, 0.0466485, 0.998822, -0.0146371, -0.0462567, 0, 0, 0)
+script = ExtResource("2_01rcq")
+type = "office"

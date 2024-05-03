@@ -19,6 +19,7 @@ height = 0.001
 [node name="Player" type="Node3D"]
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
+world_scale = 2.0
 current = true
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
