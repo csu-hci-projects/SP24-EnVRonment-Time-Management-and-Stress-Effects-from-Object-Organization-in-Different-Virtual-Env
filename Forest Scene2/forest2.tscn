@@ -54,7 +54,7 @@ size = Vector3(0.001, 100, 100)
 [sub_resource type="BoxShape3D" id="BoxShape3D_47qy2"]
 size = Vector3(100, 100, 0.001)
 
-[sub_resource type="Resource" id="Resource_lyun1"]
+[sub_resource type="Resource" id="Resource_3xjtj"]
 script = ExtResource("5_6fdqj")
 amount = 2500
 enabled = true
@@ -63,7 +63,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_rcbg1"]
+[sub_resource type="Resource" id="Resource_bdohp"]
 script = ExtResource("6_koo3i")
 position = Vector3(0, 0, 0)
 rotation = Vector3(5, 360, 5)
@@ -74,7 +74,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_0x3b0"]
+[sub_resource type="Resource" id="Resource_lut7d"]
 script = ExtResource("7_bsved")
 iterations = 3
 offset_step = 0.2
@@ -86,7 +86,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_fcm36"]
+[sub_resource type="Resource" id="Resource_u5x3e"]
 script = ExtResource("8_ehb78")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -102,9 +102,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_84i4w"]
+[sub_resource type="Resource" id="Resource_nbouu"]
 script = ExtResource("4_wijoh")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_lyun1"), SubResource("Resource_rcbg1"), SubResource("Resource_0x3b0"), SubResource("Resource_fcm36")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_3xjtj"), SubResource("Resource_bdohp"), SubResource("Resource_lut7d"), SubResource("Resource_u5x3e")])
 
 [sub_resource type="Resource" id="Resource_d4ira"]
 script = ExtResource("11_637yr")
@@ -163,7 +163,7 @@ shape = SubResource("BoxShape3D_47qy2")
 script = ExtResource("3_b55b5")
 render_mode = 1
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_84i4w")
+modifier_stack = SubResource("Resource_nbouu")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -225,7 +225,7 @@ volume_db = -28.347
 autoplay = true
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("15_wvllh")]
-transform = Transform3D(4, 0, 0, 0, 3, 0, 0, 0, 4, -2.41691, 0, -2.98894)
+transform = Transform3D(4, 0, 0, 0, 5, 0, 0, 0, 4, -2.41691, 0.210492, -2.98894)
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_Scene"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0187775, 0.241549, -0.0107157)
@@ -235,7 +235,7 @@ transform = Transform3D(1, 0, 0, 0, 0.998729, -0.0504012, 0, 0.0504012, 0.998729
 shape = SubResource("CapsuleShape3D_n3ohw")
 
 [node name="Sketchfab_Scene2" parent="." instance=ExtResource("15_wvllh")]
-transform = Transform3D(4, 0, 0, 0, 3, 0, 0, 0, 4, -0.934639, 0, -2.98894)
+transform = Transform3D(4, 0, 0, 0, 5, 0, 0, 0, 4, -0.934639, 0, -2.98894)
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_Scene2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0187775, 0.241549, -0.0107157)
@@ -245,7 +245,7 @@ transform = Transform3D(1, 0, 0, 0, 0.998729, -0.0504012, 0, 0.0504012, 0.998729
 shape = SubResource("CapsuleShape3D_n3ohw")
 
 [node name="Sketchfab_Scene3" parent="." instance=ExtResource("15_wvllh")]
-transform = Transform3D(-3.76588, 0.105708, -1.34099, 0, 2.98357, 0.418114, 1.34838, 0.295231, -3.74525, -0.934639, 0, -4.65527)
+transform = Transform3D(-3.76588, 0.17618, -1.34099, 0, 4.97261, 0.418113, 1.34838, 0.492051, -3.74525, -0.934639, 0, -4.65527)
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Sketchfab_Scene3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0187775, 0.241549, -0.0107157)
