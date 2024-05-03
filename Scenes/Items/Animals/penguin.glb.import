@@ -1,0 +1,42 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://c1xnsla0npjuk"
+path="res://.godot/imported/penguin.glb-e7063d935322adfd50d54a4c57633eb8.scn"
+
+[deps]
+
+source_file="res://Scenes/Items/Animals/penguin.glb"
+dest_files=["res://.godot/imported/penguin.glb-e7063d935322adfd50d54a4c57633eb8.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=0.845
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:Mouth_Idle": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/layer": 4
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://suby51jm4p6y"
+path.s3tc="res://.godot/imported/strawberry_Strawberry_Normal.jpg-6ed20f3087f22a2af8d74b2701d0c37c.s3tc.ctex"
+path.etc2="res://.godot/imported/strawberry_Strawberry_Normal.jpg-6ed20f3087f22a2af8d74b2701d0c37c.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "89aac9538c8f4f7023365a48db7941cb"
+}
+
+[deps]
+
+source_file="res://Scenes/Items/Food/strawberry_Strawberry_Normal.jpg"
+dest_files=["res://.godot/imported/strawberry_Strawberry_Normal.jpg-6ed20f3087f22a2af8d74b2701d0c37c.s3tc.ctex", "res://.godot/imported/strawberry_Strawberry_Normal.jpg-6ed20f3087f22a2af8d74b2701d0c37c.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://Scenes/Items/Food/strawberry_Strawberry_Normal.jpg"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

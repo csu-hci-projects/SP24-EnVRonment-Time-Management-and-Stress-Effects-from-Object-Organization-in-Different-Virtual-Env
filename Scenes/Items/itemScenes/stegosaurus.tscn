@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4ie2xxa2ydqj"]
+
+[ext_resource type="PackedScene" uid="uid://dn78kd2wcbylq" path="res://Scenes/Items/Animals/stegosaurus.glb" id="1_p1ria"]
+[ext_resource type="Script" path="res://Scenes/item.gd" id="2_8eqev"]
+
+[node name="stegosaurus" instance=ExtResource("1_p1ria")]
+
+[node name="stegosaurusLowPoly" parent="." index="2"]
+collision_layer = 5
+script = ExtResource("2_8eqev")
+type = "animals"

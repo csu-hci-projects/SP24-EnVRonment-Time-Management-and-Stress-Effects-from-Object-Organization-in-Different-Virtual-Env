@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://dt8thpfd46cd1"]
+[gd_scene load_steps=13 format=3 uid="uid://dt8thpfd46cd1"]
 
 [ext_resource type="PackedScene" uid="uid://5yjco5rp36x0" path="res://Scenes/player.tscn" id="1_igvqi"]
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_lj6qr"]
-[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="3_s4qc5"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bj6u7"]
 size = Vector2(100, 100)
@@ -41,13 +40,6 @@ size = Vector3(100, 1, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sekq1"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_7cbud"]
-radius = 0.1
-
-[sub_resource type="SphereMesh" id="SphereMesh_5ihkv"]
-radius = 0.1
-height = 0.2
-
 [node name="World" type="Node3D"]
 script = ExtResource("1_lj6qr")
 
@@ -75,14 +67,3 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_sekq1")
-
-[node name="XRToolsPickable2" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22371, -2.75578)
-collision_layer = 5
-script = ExtResource("3_s4qc5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XRToolsPickable2"]
-shape = SubResource("SphereShape3D_7cbud")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XRToolsPickable2"]
-mesh = SubResource("SphereMesh_5ihkv")

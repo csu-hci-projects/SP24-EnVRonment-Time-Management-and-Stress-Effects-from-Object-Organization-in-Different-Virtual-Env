@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://5yjco5rp36x0"]
+[gd_scene load_steps=10 format=3 uid="uid://5yjco5rp36x0"]
 
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_7wv44"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="1_avmgv"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="1_kjdhy"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_840f1"]
@@ -17,8 +18,10 @@ radius = 0.0005
 height = 0.001
 
 [node name="Player" type="Node3D"]
+script = ExtResource("1_7wv44")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
+world_scale = 2.0
 current = true
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
