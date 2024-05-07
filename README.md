@@ -14,3 +14,5 @@ https://youtu.be/NQnt6Ss2BkY
 
 ## Overleaf Research Paper Link
 https://www.overleaf.com/project/6604b86930a0367c38c20626
+
+**PDF:** https://github.com/csu-hci-projects/SP24-EnVRonment-Time-Management-and-Stress-Effects-from-Object-Organization-in-Different-Virtual-Env/blob/d0efc629bc43f0e6334dd6f3680c3a2e6f2d229a/Research_Paper_EnVRonment__Time_Management_and_Stress_Effects_from_Object_Organization_in_Different_Virtual_Environments.pdf
